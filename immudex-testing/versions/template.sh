@@ -21,9 +21,6 @@ function set_xfce4_notes_autostart() {
 
 
 function recreate_users() {
-  userdel -r user;
-  userdel -r xf0r3m;
-
   useradd -m -s /bin/bash user;
   cp -rvv /etc/skel/.??* /home/user;
   chown -R user:user /home/user;
@@ -33,7 +30,6 @@ function recreate_users() {
   cp -rvv /etc/skel/.??* /home/xf0r3m;
   chown -R xf0r3m:xf0r3m /home/xf0r3m;
   echo "xf0r3m:xf0r3m1" | chpasswd;
-  set_notifier_packages
   set_xfce4_notes_autostart
 
   usermod -aG libvirt,libvirt-qemu xf0r3m;
